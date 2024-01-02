@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+    <title></title>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function() {
+            $.ajax({
+                url: 'http://swapi.co./api/people/1/',
+                type: 'GET',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var info = result;
+                    $('#name').html(info.name);
+                    $('#height').html(info.height);
+                    $('#mass').html(info.mass);
+                    $('#hair_color').html(info.hair_color);
+                    $('#skin_color').html(info.skin_color);
+                    $('#eye_color').html(info.eye_color);
+                    $('#birth_year').html(info.birth_year);
+                    $('#gender').html(info.gender);
+
+                    var arrayFilms = info.films;
+                    var test = '';
+                    $(arrayFilms).each(function(i, dato) {
+                        test += dato + " // ";
+                    });
+                    $('#test2').html(test);
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="div-test">
+        <P id="name"></P>
+        <P id="height"></P>
+        <P id="mass"></P>
+        <P id="hair_color"></P>
+        <P id="skin_color"></P>
+        <P id="eye_color"></P>
+        <P id="birth_year"></P>
+        <P id="gender"></P>
+        <div id="test2"></div>
+    </div>
+</body>
+</html>
